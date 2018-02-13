@@ -30,9 +30,9 @@ form input{
 	flex-direction: row;
 	flex-wrap: wrap;
 	width: 100%;
-	border-top: 1px solid rgba(0,0,0,0.05);
-	border-bottom: 1px solid rgba(0,0,0,0.05);
-	background-color: rgba(0,0,0,0.01);
+	border-top: 1px solid rgba(0,0,0,0.08);
+	border-bottom: 1px solid rgba(0,0,0,0.08);
+	background-color: rgba(0,0,0,0.03);
 	padding-bottom: 15px;
 	border-radius: 8px;
 }

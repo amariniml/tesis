@@ -44,7 +44,7 @@
                     <a onclick="addSubCriteria(1)" class="btn btn-primary">
                         <span class="icon-plus"></span>
                     </a>
-                    <a class="btn btn-danger">
+                    <a onclick="removeSubCriteria(1)" class="btn btn-danger">
                         <span class="icon-minus"></span>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                     <a onclick="addSubCriteria(2)" class="btn btn-primary">
                         <span class="icon-plus"></span>
                     </a>
-                    <a class="btn btn-danger">
+                    <a onclick="removeSubCriteria(2)" class="btn btn-danger">
                         <span class="icon-minus"></span>
                     </a>
                 </div>
