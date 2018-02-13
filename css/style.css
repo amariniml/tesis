@@ -19,7 +19,25 @@ form input{
 	flex-direction: row;
 	flex-wrap: wrap;
 	width: 100%;
+	/* background-color: rgba(0,0,0,0.2); */
+	/* padding: 20px 0px; */
+	/* margin: 20px 0; */
+	/* border-radius: 8px; */
 }
+
+.subcriteria{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	border-top: 1px solid rgba(0,0,0,0.05);
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	background-color: rgba(0,0,0,0.01);
+	padding-bottom: 15px;
+	border-radius: 8px;
+}
+
+
 
 #alternative-area{
 	display: flex;
@@ -57,7 +75,7 @@ a{
 	background: #3498db;
 	color: white;
 	font-weight: 500;
-	border-bottom: 2px solid white; 
+	border-bottom: 2px solid white;
 }
 
 .table-pairwaise td input{
@@ -107,14 +125,14 @@ a{
 	display: none;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none; 
-      margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
 }
 
-input[type=number] { 
+input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
-  margin: 0; 
+  margin: 0;
 }

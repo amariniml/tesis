@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"> 
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <link rel="stylesheet" href="css/tether.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="icomoon.css">
@@ -25,62 +25,53 @@
             </div>
 
 
-
             <div class="col-lg-6 mt-5">
                 <a onclick="addcriteria()" class="btn btn-block btn-primary">
-                    <span class="icon-plus"></span> Criteria 
-                </a>
-            </div>  
-            <div class="col-lg-6 mt-5">
-                <a onclick="removecriteria()" class="btn btn-block btn-danger">
-                    <span class="icon-minus"></span> Criteria 
+                    <span class="icon-plus"></span> Criteria
                 </a>
             </div>
-            
+            <div class="col-lg-6 mt-5">
+                <a onclick="removecriteria()" class="btn btn-block btn-danger">
+                    <span class="icon-minus"></span> Criteria
+                </a>
+            </div>
+
             <div id="criteria-area">
                 <div class="col-lg-10 mt-3">
-                    <input type="text" value="Cilindrada" id="criteria" name="criteria1" placeholder="Enter the criteria n°1 for start the evaluation...">
+                    <input type="text" id="criteria" name="criteria1" placeholder="Criteria 1">
                 </div>
                 <div class="col-lg-2 mt-3">
-                    <a class="btn btn-primary">
+                    <a onclick="addSubCriteria(1)" class="btn btn-primary">
                         <span class="icon-plus"></span>
                     </a>
                     <a class="btn btn-danger">
                         <span class="icon-minus"></span>
                     </a>
                 </div>
+                <div id="subc-div-1" class="subcriteria d-none mt-4 mb-4"></div>
+
                 <div class="col-lg-10 mt-2">
-                    <input type="text" value="Velocidad" id="criteria" name="criteria2" placeholder="Enter the criteria n°2 for start the evaluation...">
+                    <input type="text" id="criteria" name="criteria2" placeholder="Criteria 2">
                 </div>
                 <div class="col-lg-2 mt-2">
-                    <a class="btn btn-primary">
+                    <a onclick="addSubCriteria(2)" class="btn btn-primary">
                         <span class="icon-plus"></span>
                     </a>
                     <a class="btn btn-danger">
                         <span class="icon-minus"></span>
                     </a>
                 </div>
-                <div class="col-lg-10 mt-2">
-                    <input type="text" value="Aceleracion" id="criteria" name="criteria3" placeholder="Enter the criteria n°3 for start the evaluation...">
-                </div>
-                <div class="col-lg-2 mt-2">
-                    <a class="btn btn-primary">
-                        <span class="icon-plus"></span>
-                    </a>
-                    <a class="btn btn-danger">
-                        <span class="icon-minus"></span>
-                    </a>
-                </div>
+                <div id="subc-div-2" class="subcriteria d-none mt-4 mb-4"></div>
             </div>
 
             <div class="col-lg-6 mt-5">
                 <a onclick="addalternative()" class="btn btn-block btn-primary">
-                    <span class="icon-plus"></span> Alternative 
+                    <span class="icon-plus"></span> Alternative
                 </a>
-            </div>  
+            </div>
             <div class="col-lg-6 mt-5">
                 <a onclick="removealternative()" class="btn btn-block btn-danger">
-                    <span class="icon-minus"></span> Alternative 
+                    <span class="icon-minus"></span> Alternative
                 </a>
             </div>
 
@@ -98,13 +89,13 @@
 
 
 
-            
+
 
           <button type="submit" class="btn btn-block btn-primary mt-5">Continue</button>
         </form>
     </div>
 
-    
+
 
     <form action="#" onsubmit="dothemath(); return false;" class="pairwaise-calculations">
         <div class="contenedor">
@@ -113,13 +104,12 @@
                     <h1 class="mb-5">Pairwaise Comparation Matrix <small>Criteria vs Criteria</small></h1>
                 </div>
             </div>
-            
             <div id="pairwaise-sub-c" class="pairwaise mt-5">
                 <div class="matrix-container-sub-c">
                     <!-- <h1 class="mb-5">Pairwaise Comparation Matrix <small>Criteria vs Criteria</small></h1> -->
                 </div>
             </div>
-            
+
             <div id="pairwaise-a-a" class="pairwaise mt-5">
                 <div class="matrix-container-a-a">
                     <h1 class="mb-5">Pairwaise Comparation Matrix <small>Alternative vs Alternative</small></h1>
@@ -148,9 +138,9 @@
     </div>
 
 
-    
 
-    
+
+
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
