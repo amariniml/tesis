@@ -1,4 +1,5 @@
 var goal;
+var hierarchy = [];
 var criteria = new Array();
 var alternative = new Array();
 var ahp;
@@ -9,9 +10,72 @@ function capturedata(){
 	goal = $('#goal').val();
 	var i = 0;
 
+
 	$("#form-ahp #criteria").each(function(){
 	    criteria[i] = $(this).val();
 	    i++;
+	});
+
+	var n_criterio_level_1 = 1;
+	$("#form-ahp #criteria").each(function(){
+		var criterio_level_1 = $(this).val();
+		if(  $('#subc-div-'+n_criterio_level_1+' #subcriteria-'+n_criterio_level_1).length > 0  ){
+			hierarchy[criterio_level_1] = new Array();
+			var n_criterio_level_2 = 1;
+			$('#subc-div-'+n_criterio_level_1+' #subcriteria-'+n_criterio_level_1).each(function(){
+				var criterio_level_2 = $(this).val();
+				if(  $('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2).length > 0  ){
+					hierarchy[criterio_level_1][criterio_level_2] = new Array();
+					var n_criterio_level_3 = 1;
+					$('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2).each(function(){
+						var criterio_level_3 = $(this).val();
+						if(  $('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3).length > 0  ){
+							hierarchy[criterio_level_1][criterio_level_2][criterio_level_3] = new Array();
+							var n_criterio_level_4 = 1;
+							$('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3).each(function(){
+								var criterio_level_4 = $(this).val();
+								if(  $('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4).length > 0  ){
+									hierarchy[criterio_level_1][criterio_level_2][criterio_level_3][criterio_level_4] = new Array();
+									var n_criterio_level_5=1;
+									$('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4).each(function(){
+										var criterio_level_5 = $(this).val();
+										if(  $('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4+'-'+n_criterio_level_5+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4+'-'+n_criterio_level_5).length > 0  ){
+											var n_criterio_level_6 = 1;
+											hierarchy[criterio_level_1][criterio_level_2][criterio_level_3][criterio_level_4][criterio_level_5] = new Array();
+											$('#subc-div-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4+'-'+n_criterio_level_5+' #subcriteria-'+n_criterio_level_1+'-'+n_criterio_level_2+'-'+n_criterio_level_3+'-'+n_criterio_level_4+'-'+n_criterio_level_5).each(function(){
+												var criterio_level_6 = $(this).val();
+												hierarchy[criterio_level_1][criterio_level_2][criterio_level_3][criterio_level_4][criterio_level_5][criterio_level_6] = "";
+											});
+											n_criterio_level_6++;
+										}
+										else{
+											hierarchy[criterio_level_1][criterio_level_2][criterio_level_3][criterio_level_4][criterio_level_5] = "";
+										}
+										n_criterio_level_5++;
+									});
+								}
+								else{
+									hierarchy[criterio_level_1][criterio_level_2][criterio_level_3][criterio_level_4] = "";
+								}
+								n_criterio_level_4++;
+							});
+						}
+						else{
+							hierarchy[criterio_level_1][criterio_level_2][criterio_level_3] = "";
+						}
+						n_criterio_level_3++;
+					})
+				}
+				else{
+					hierarchy[criterio_level_1][criterio_level_2] = "";
+				}
+				n_criterio_level_2++;
+			})
+		}
+		else{
+			hierarchy[criterio_level_1] = "";
+		}
+		n_criterio_level_1++;
 	});
 
 	i=0;
@@ -37,7 +101,7 @@ function capturedata(){
 				else{
 					$(ide).append('<td><input onkeyup="makesomemagic('+(i+1)+','+(k+1)+')" id="c'+(i+1)+(k+1)+'" step="0.1" min="0" max="9" name=""></td>');
 				}
-				
+
 			}
 		}
     	$("#pairwaise").show( "slow");
@@ -82,7 +146,7 @@ function dothemath(){
 			criteria_matrix[i][j] = $("#c"+(i+1)+(j+1)).val();
 		}
 	}
-	
+
 
 	var alternatives_matrix = new Array(criteria.length);
 	for (var i = 0; i < criteria.length; i++) {
@@ -132,4 +196,3 @@ function dothemath(){
 
 
 }
-

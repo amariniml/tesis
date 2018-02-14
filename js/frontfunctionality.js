@@ -2,7 +2,7 @@ function addcriteria(){
 	var criteria_number = ($('#criteria-area #criteria').length+1);
 
 	if(criteria_number<30){
-		var element = '<div class="col-lg-10 mt-2"><input type="text" id="criteria" name="criteria'+criteria_number+'" placeholder="Criteria '+criteria_number+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+criteria_number+')" class="btn btn-primary"> <span class="icon-plus"></span></a> <a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+criteria_number+'" class="subcriteria d-none mt-4 mb-4"></div>';
+		var element = '<div class="col-lg-10 mt-2"><input type="text" id="criteria" name="criteria'+criteria_number+'" placeholder="Criteria '+criteria_number+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+criteria_number+')" class="btn btn-primary"> <span class="icon-plus"></span></a> <a onclick="removeSubCriteria('+criteria_number+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+criteria_number+'" class="subcriteria d-none mt-4 mb-4"></div>';
 		$("#criteria-area").append(element);
 	}
 	else{
@@ -16,7 +16,68 @@ function removeSubCriteria(c1,c2,c3,c4,c5){
 	var c3 = c3 || false;
 	var c4 = c4 || false;
 	var c5 = c5 || false;
-	
+	if(!c2){
+		var sub_criteria_number = $('#subc-div-'+c1+' #subcriteria-'+c1).length;
+		if(sub_criteria_number>2){
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+		}
+		else if(sub_criteria_number==2){
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).children().last().remove();
+			$('#subc-div-'+c1).addClass('d-none')
+		}
+	}
+	else if(!c3){
+		var sub_criteria_number = $('#subc-div-'+c1+'-'+c2+' #subcriteria-'+c1+'-'+c2).length;
+		if(sub_criteria_number>2){
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+		}
+		else if(sub_criteria_number==2){
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2).addClass('d-none')
+		}
+	}
+	else if(!c4){
+		var sub_criteria_number = $('#subc-div-'+c1+'-'+c2+'-'+c3+' #subcriteria-'+c1+'-'+c2+'-'+c3).length;
+		if(sub_criteria_number>2){
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+		}
+		else if(sub_criteria_number==2){
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).addClass('d-none')
+		}
+	}
+	else if(!c5){
+		var sub_criteria_number = $('#subc-div-'+c1+'-'+c2+'-'+c3+'-'+c4+' #subcriteria-'+c1+'-'+c2+'-'+c3+'-'+c4).length;
+		if(sub_criteria_number>2){
+			$('#subc-div-'+c1+'-'+c2+'-'+c3+'-'+c4).children().last().remove();
+		}
+		else if(sub_criteria_number==2){
+			$('#subc-div-'+c1+'-'+c2+'-'+c3+'-'+c4).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3+'-'+c4).children().last().remove();
+			$('#subc-div-'+c1+'-'+c2+'-'+c3+'-'+c4).addClass('d-none')
+		}
+	}
 }
 
 function addSubCriteria(c1,c2,c3,c4,c5){
@@ -29,33 +90,33 @@ function addSubCriteria(c1,c2,c3,c4,c5){
 		console.log(sub_criteria_number)
 		if(sub_criteria_number == 0){
 			$('#subc-div-'+c1).removeClass('d-none');
-			$('#subc-div-'+c1).append('<div class="col-lg-10 mt-4"><input type="text" id="subcriteria-'+c1+'" name="criteria" placeholder="Criteria '+c1+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-4"><a onclick="addSubCriteria('+c1+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
-			$('#subc-div-'+c1).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'" name="criteria" placeholder="Criteria '+c1+'.'+(sub_criteria_number+2)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+(sub_criteria_number+2)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+(sub_criteria_number+2)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1).append('<div class="col-lg-10 mt-4"><input type="text" id="subcriteria-'+c1+'" name="criteria" placeholder="Criteria '+c1+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-4"><a onclick="addSubCriteria('+c1+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+(sub_criteria_number+1)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'" name="criteria" placeholder="Criteria '+c1+'.'+(sub_criteria_number+2)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+(sub_criteria_number+2)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+(sub_criteria_number+2)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+(sub_criteria_number+2)+'" class="subcriteria d-none mt-4 mb-4"></div>');
 		}
 		else{
-			$('#subc-div-'+c1).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'" name="criteria" placeholder="Criteria '+c1+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'" name="criteria" placeholder="Criteria '+c1+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+(sub_criteria_number+1)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
 		}
 	}
 	else if(!c3){
 		var sub_criteria_number = $('#subc-div-'+c1+'-'+c2+' #subcriteria-'+c1+'-'+c2).length;
 		if(sub_criteria_number == 0){
 			$('#subc-div-'+c1+'-'+c2).removeClass('d-none');
-			$('#subc-div-'+c1+'-'+c2).append('<div class="col-lg-10 mt-4"><input type="text" id="subcriteria-'+c1+'-'+c2+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-4"><a onclick="addSubCriteria('+c1+','+c2+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
-			$('#subc-div-'+c1+'-'+c2).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+(sub_criteria_number+2)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+(sub_criteria_number+2)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+(sub_criteria_number+2)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1+'-'+c2).append('<div class="col-lg-10 mt-4"><input type="text" id="subcriteria-'+c1+'-'+c2+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-4"><a onclick="addSubCriteria('+c1+','+c2+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+c2+','+(sub_criteria_number+1)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1+'-'+c2).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+(sub_criteria_number+2)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+(sub_criteria_number+2)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+c2+','+(sub_criteria_number+2)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+(sub_criteria_number+2)+'" class="subcriteria d-none mt-4 mb-4"></div>');
 		}
 		else{
-			$('#subc-div-'+c1+'-'+c2).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1+'-'+c2).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+c2+','+(sub_criteria_number+1)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
 		}
 	}
 	else if(!c4){
 		var sub_criteria_number = $('#subc-div-'+c1+'-'+c2+'-'+c3+' #subcriteria-'+c1+'-'+c2+'-'+c3).length;
 		if(sub_criteria_number == 0){
 			$('#subc-div-'+c1+'-'+c2+'-'+c3).removeClass('d-none');
-			$('#subc-div-'+c1+'-'+c2+'-'+c3).append('<div class="col-lg-10 mt-4"><input type="text" id="subcriteria-'+c1+'-'+c2+'-'+c3+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+c3+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-4"><a onclick="addSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+c3+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
-			$('#subc-div-'+c1+'-'+c2+'-'+c3).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'-'+c3+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+c3+'.'+(sub_criteria_number+2)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+2)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+c3+'-'+(sub_criteria_number+2)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).append('<div class="col-lg-10 mt-4"><input type="text" id="subcriteria-'+c1+'-'+c2+'-'+c3+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+c3+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-4"><a onclick="addSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+1)+')" class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+c3+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'-'+c3+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+c3+'.'+(sub_criteria_number+2)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+2)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+2)+')"  class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+c3+'-'+(sub_criteria_number+2)+'" class="subcriteria d-none mt-4 mb-4"></div>');
 		}
 		else{
-			$('#subc-div-'+c1+'-'+c2+'-'+c3).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'-'+c3+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+c3+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+c3+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
+			$('#subc-div-'+c1+'-'+c2+'-'+c3).append('<div class="col-lg-10 mt-2"><input type="text" id="subcriteria-'+c1+'-'+c2+'-'+c3+'" name="criteria" placeholder="Criteria '+c1+'.'+c2+'.'+c3+'.'+(sub_criteria_number+1)+'"></div><div class="col-lg-2 mt-2"><a onclick="addSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+1)+')" class="btn btn-primary"><span class="icon-plus"></span></a><a onclick="removeSubCriteria('+c1+','+c2+','+c3+','+(sub_criteria_number+1)+')"  class="btn btn-danger"><span class="icon-minus"></span></a></div><div id="subc-div-'+c1+'-'+c2+'-'+c3+'-'+(sub_criteria_number+1)+'" class="subcriteria d-none mt-4 mb-4"></div>');
 		}
 	}
 	else if(!c5){

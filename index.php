@@ -38,26 +38,26 @@
 
             <div id="criteria-area">
                 <div class="col-lg-10 mt-3">
-                    <input type="text" id="criteria" name="criteria1" placeholder="Criteria 1">
+                    <input type="text" id="criteria" value="Velocidad" name="criteria1" placeholder="Criteria 1">
                 </div>
                 <div class="col-lg-2 mt-3">
                     <a onclick="addSubCriteria(1)" class="btn btn-primary">
                         <span class="icon-plus"></span>
                     </a>
-                    <a class="btn btn-danger">
+                    <a onclick="removeSubCriteria(1)" class="btn btn-danger">
                         <span class="icon-minus"></span>
                     </a>
                 </div>
                 <div id="subc-div-1" class="subcriteria d-none mt-4 mb-4"></div>
 
                 <div class="col-lg-10 mt-2">
-                    <input type="text" id="criteria" name="criteria2" placeholder="Criteria 2">
+                    <input type="text" id="criteria" value="Cilindrada" name="criteria2" placeholder="Criteria 2">
                 </div>
                 <div class="col-lg-2 mt-2">
                     <a onclick="addSubCriteria(2)" class="btn btn-primary">
                         <span class="icon-plus"></span>
                     </a>
-                    <a class="btn btn-danger">
+                    <a onclick="removeSubCriteria(2)" class="btn btn-danger">
                         <span class="icon-minus"></span>
                     </a>
                 </div>
